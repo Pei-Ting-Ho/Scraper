@@ -102,8 +102,7 @@ def crawl_review_page(client, review_url):
             reviewer_text = reviewers_text_info.text
         
         # Reviewers: Rating dates
-        reviewers_date_info = reviewer_block.find_all('span', {'class': 
-        'lemon--span__373c0__3997G text__373c0__2Kxyz text-color--mid__373c0__jCeOG text-align--left__373c0__2XGa-'}, limit = 1)
+        reviewers_date_info = reviewer_block.find_all('span', {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz text-color--mid__373c0__jCeOG text-align--left__373c0__2XGa-'}, limit = 1)
         for j in reviewers_date_info:
             if j == None:
                 reviewer_date = 'NA'
