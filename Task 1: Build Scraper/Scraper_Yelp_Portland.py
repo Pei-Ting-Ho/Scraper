@@ -56,8 +56,8 @@ def crawl_review_page(client, review_url):
     html = client.get(review_url).text
     soup = BeautifulSoup(html, 'lxml')
     
-    reviwers_block_list = soup.find_all('li', 
-                                        {'class': 'lemon--li__373c0__1r9wz margin-b3__373c0__q1DuY padding-b3__373c0__342DA border--                                                  bottom__373c0__3qNtD border-color--default__373c0__3-ifU'})
+    reviwers_block_list = soup.find_all('li', {'class': 
+                                        'lemon--li__373c0__1r9wz margin-b3__373c0__q1DuY padding-b3__373c0__342DA border--                                                           bottom__373c0__3qNtD border-color--default__373c0__3-ifU'})
     for reviewer_block in reviwers_block_list:
         # Reviewers: Name
         reviewer_name = reviewer_block.find('span', {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz fs-block text-color--blue-dark__373c0__1jX7S text-align--left__373c0__2XGa- text-weight--bold__373c0__1elNz'}).text
