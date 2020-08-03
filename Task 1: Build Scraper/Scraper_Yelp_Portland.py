@@ -62,8 +62,7 @@ def crawl_review_page(client, review_url):
         reviewer_name = reviewer_block.find('span', {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz fs-block text-color--blue-dark__373c0__1jX7S text-align--left__373c0__2XGa- text-weight--bold__373c0__1elNz'}).text
   
         # Reviewers: Location
-        reviewers_location_info = reviewer_block.find('span', {'class': 
-        'lemon--span__373c0__3997G text__373c0__2Kxyz text-color--normal__373c0__3xep9 text-align--left__373c0__2XGa- text-weight--bold__373c0__1elNz text-size--small__373c0__3NVWO'})
+        reviewers_location_info = reviewer_block.find('span', {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz text-color--normal__373c0__3xep9 text-align--left__373c0__2XGa- text-weight--bold__373c0__1elNz text-size--small__373c0__3NVWO'})
         if reviewers_location_info == None:
             reviewer_location = 'NA'
         else:
