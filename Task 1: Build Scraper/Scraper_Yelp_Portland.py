@@ -56,13 +56,19 @@ def crawl_review_page(client, review_url):
     html = client.get(review_url).text
     soup = BeautifulSoup(html, 'lxml')
     
-    reviwers_block_list = soup.find_all('li', {'class': 'lemon--li__373c0__1r9wz margin-b3__373c0__q1DuY padding-b3__373c0__342DA border--bottom__373c0__3qNtD border-color--default__373c0__3-ifU'})
+    reviwers_block_list = soup.find_all('li', 
+                                        {'class': 'lemon--li__373c0__1r9wz margin-b3__373c0__q1DuY padding-b3__373c0__342DA 
+                                         border--bottom__373c0__3qNtD border-color--default__373c0__3-ifU'})
     for reviewer_block in reviwers_block_list:
         # Reviewers: Name
-        reviewer_name = reviewer_block.find('span', {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz fs-block text-color--blue-dark__373c0__1jX7S text-align--left__373c0__2XGa- text-weight--bold__373c0__1elNz'}).text
+        reviewer_name = reviewer_block.find('span', 
+                                            {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz fs-block text-color--
+                                             blue-dark__373c0__1jX7S text-align--left__373c0__2XGa- text-weight--bold__373c0__1elNz'}).text
   
         # Reviewers: Location
-        reviewers_location_info = reviewer_block.find('span', {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz text-color--normal__373c0__3xep9 text-align--left__373c0__2XGa- text-weight--bold__373c0__1elNz text-size--small__373c0__3NVWO'})
+        reviewers_location_info = reviewer_block.find('span', 
+                                                      {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz text-color--
+                                                       normal__373c0__3xep9 text-align--left__373c0__2XGa- text-weight--bold__373c0__1elNz text-size--small__373c0__3NVWO'})
         if reviewers_location_info == None:
             reviewer_location = 'NA'
         else:
@@ -102,7 +108,9 @@ def crawl_review_page(client, review_url):
             reviewer_text = reviewers_text_info.text
         
         # Reviewers: Rating dates
-        reviewers_date_info = reviewer_block.find_all('span', {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz text-color--mid__373c0__jCeOG text-align--left__373c0__2XGa-'}, limit = 1)
+        reviewers_date_info = reviewer_block.find_all('span', 
+                                                      {'class': 'lemon--span__373c0__3997G text__373c0__2Kxyz text-color--
+                                                       mid__373c0__jCeOG text-align--left__373c0__2XGa-'}, limit = 1)
         for j in reviewers_date_info:
             if j == None:
                 reviewer_date = 'NA'
@@ -110,7 +118,8 @@ def crawl_review_page(client, review_url):
                 reviewer_date = j.text
         
         # Put together 
-        reviews_info += [(reviewer_name, reviewer_location, reviewer_friends, reviewer_reviews, reviewer_photos, reviewer_ratings, reviewer_text, reviewer_date)]
+        reviews_info += [(reviewer_name, reviewer_location, reviewer_friends, reviewer_reviews, 
+                          reviewer_photos, reviewer_ratings, reviewer_text, reviewer_date)]
 
     return reviews_info
 
@@ -162,7 +171,9 @@ for i in range(len(object_df)):
         num_reviews.append(int(j.get_text().split(' ')[0]))
 
     # # Number of photos
-    num_photos_info = soup.find_all('a', {'class': 'lemon--a__373c0__IEZFH button__373c0__3lYgT secondary-white__373c0__2OPxz'}, limit = 1)
+    num_photos_info = soup.find_all('a', 
+                                    {'class': 'lemon--a__373c0__IEZFH button__373c0__3lYgT secondary-white__373c0__2OPxz'}, 
+                                    limit = 1)
     num_photos = []
     if num_photos_info:
         for j in num_photos_info:
