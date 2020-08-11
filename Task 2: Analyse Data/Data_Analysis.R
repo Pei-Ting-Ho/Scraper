@@ -76,8 +76,8 @@ Review <- Review %>%
                                                               str_count(reviewer_text, '\\w+'), data = Review)
       # Interpret coefficients
         # Log-odds
-          # A one-unit increase in num_reviews is associated with the decrease in the log odds of being rated as 3.5 vs. 3.0 in the amount of 0.018.
-          # A one-unit increase in num_photos is associated with the increase in the log odds of being rated as 3.5 vs. 3.0 in the amount of 0.021.
+          # One-unit increase in the variable num_reviews => Decrease in the log odds of being rated as 3.5 vs. 3.0 in the amount of 0.018
+          # One-unit increase in the variable num_photo => Increase in the log odds of being rated as 3.5 vs. 3.0 in the amount of 0.021
           # The log odds of being rated as 3.5 vs. 3.0 will decrease by 18.036 if moving from no highlights to highlights.
         # Odd-ratios
           # The odd ratio for a one-unit increase in num_reviews is 0.981 for being rated as 3.5 vs. 3.0.
